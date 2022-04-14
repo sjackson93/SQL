@@ -1,0 +1,24 @@
+CREATE TABLE bikes (id integer primary key, name text, color text, size integer, price integer, quantity integer);
+INSERT INTO bikes
+VALUES
+(1, 'Crash', 'Blue', 25,50,10),
+(2, 'Shadow', 'Black', 26,40,5),
+(3, 'Bee', 'Yellow', 24,45,7),
+(4, 'Spike', 'Blue', 25,50,10),
+(5, 'Frank', 'Brown', 26,30,5),
+(6, 'George', 'Green', 24,45,7),
+(7, 'Bill', 'Red', 25,500,10),
+(8, 'Caleb', 'Purple', 26,40,5),
+(9, 'Spencer', 'Gray', 24,80,7),
+(10, 'Luke', 'Salmon', 25,50,10),
+(11, 'Sam', 'White', 26,60,5),
+(12, 'Jon', 'Silver', 24,45,7),
+(13, 'Koda', 'Orange', 25,70,10),
+(14, 'Slaw', 'Pink', 26,90,5),
+(15, 'Tally', 'Plumb', 24,1000,7)
+;
+SELECT * FROM bikes
+
+SELECT * FROM bikes
+GROUP BY price;
+SELECT SUM(quantity) FROM bikes;
