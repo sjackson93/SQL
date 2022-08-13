@@ -1,0 +1,102 @@
+CREATE TABLE marvels (ID INTEGER PRIMARY KEY,
+    name TEXT,
+    alignment TEXT,
+    gender TEXT, 
+    height_m INTEGER,
+    weight_kg INTEGER,
+    origin TEXT);
+     
+INSERT INTO marvels VALUES(1, "Spider Man",  "Good", "Male", 1.78, 75.75, "USA"); 
+INSERT INTO marvels VALUES(2, "Iron Man", "Neutral", "Male", 1.98, 102.58, "USA"); 
+INSERT INTO marvels VALUES(3, "Hulk", "Neutral", "Male", 2.44, 635.29, "USA"); 
+INSERT INTO marvels VALUES(4, "Wolverine", "Good", "Male", 1.6, 88.46, "Canada");
+INSERT INTO marvels VALUES(5, "Thor", "Good", "Male", 1.98, 290.3, "Asgard");
+INSERT INTO marvels VALUES(6, "Green Goblin", "Bad", "Male", 1.93, 174.63, "USA");
+INSERT INTO marvels VALUES(7, "Magneto", "Neutral", "Male", 1.88, 86.18, "Germany");
+INSERT INTO marvels VALUES(8, "Thanos", "Bad", "Male", 2.01, 446.79, "Titan");
+INSERT INTO marvels VALUES(9, "Loki", "Bad", "Male", 1.93, 238.14, "Jotunheim");
+INSERT INTO marvels VALUES(10, "Doctor Doom", "Bad", "Male", 2.01, 188.24, "Latveria");
+INSERT INTO marvels VALUES(11, "Jean Grey", "Good", "Female", 1.68, 52.16, "USA");
+INSERT INTO marvels VALUES(12, "Rogue", "Good", "Female", 1.73, 54.43, "USA");
+INSERT INTO marvels VALUES(13, "Storm", "Good", "Female", 1.80, 66, "Kenya");
+INSERT INTO marvels VALUES(14, "Nightcrawler", "Good", "Male", 1.75, 73, "Germany");
+INSERT INTO marvels VALUES(15, "Gambit", "Good", "Male", 1.88, 81, "EUA");
+INSERT INTO marvels VALUES(16, "Captain America", "Good", "Male", 1.88, 108, "EUA");
+INSERT INTO marvels VALUES(17, "Cyclops", "Good", "Male", 1.90, 88, "EUA");
+INSERT INTO marvels VALUES(18, "Emma Frost", "Neutral", "Female", 1.78, 65, "EUA");
+INSERT INTO marvels VALUES(19, "Kitty Pryde", "Good", "Female", 1.68, 50, "EUA");
+INSERT INTO marvels VALUES(20, "Daredevil", "Good", "Male", 1.83, 91, "EUA");
+INSERT INTO marvels VALUES(21, "Punisher", "Neutral", "Male", 1.85, 91, "EUA");
+INSERT INTO marvels VALUES(22, "Silver Surfer", "Good", "Male", 1.93, 102, "Zenn-La");
+INSERT INTO marvels VALUES(23, "Ghost Rider", "Good", "Male", 1.88, 99, "EUA");
+INSERT INTO marvels VALUES(24, "Venon", "Neutral", "Male", 1.90, 118, "EUA");
+INSERT INTO marvels VALUES(25, "Juggernaut", "Neutral", "Male", 2.87, 862, "EUA");
+INSERT INTO marvels VALUES(26, "Professor X", "Good", "Male", 1.83, 86, "EUA");
+
+CREATE TABLE stats (ID INTEGER PRIMARY KEY,
+    marvel_id INTEGER,
+    popularity INTEGER,
+    intelligence INTEGER,
+    strength INTEGER,
+    speed INTEGER,
+    durability INTEGER,
+    energy_Projection INTEGER,
+    fighting_Skills INTEGER);
+    
+INSERT INTO stats VALUES(1, 1, 1, 4, 4, 3, 3, 1, 4); 
+INSERT INTO stats VALUES(2, 2, 20, 6, 6, 5, 6, 6, 4); 
+INSERT INTO stats VALUES(3, 3, 18, 1, 7, 3, 7, 5, 4); 
+INSERT INTO stats VALUES(4, 4, 3, 2, 4, 2, 4, 1, 7);
+INSERT INTO stats VALUES(5, 5, 5,  2, 7, 7, 6, 6, 4);
+INSERT INTO stats VALUES(6, 6, 91, 4, 4, 3, 4, 3, 3);
+INSERT INTO stats VALUES(7, 7, 11,  6, 3, 5, 4, 6, 4);
+INSERT INTO stats VALUES(8, 8, 47,  6, 7, 7, 6, 6, 4);
+INSERT INTO stats VALUES(9, 9, 32, 5, 5, 7, 6, 6, 3);
+INSERT INTO stats VALUES(10, 10, 19, 6, 4, 5, 6, 6, 4);
+INSERT INTO stats VALUES(11, 11, 8,  3, 2, 7, 7, 7, 4);
+INSERT INTO stats VALUES(12, 12, 4,  7, 7, 7, 7, 7, 7);
+INSERT INTO stats VALUES(13, 13, 2,  2, 2, 3, 2, 5, 4);
+INSERT INTO stats VALUES(14, 14, 6, 3, 2, 7, 2, 1, 3);
+INSERT INTO stats VALUES(15, 15, 7, 2, 2, 2, 2, 2, 4);
+INSERT INTO stats VALUES(16, 16, 9, 3, 3, 2, 3, 1, 6);
+INSERT INTO stats VALUES(17, 17, 10, 3, 2, 2, 2, 5, 4);
+INSERT INTO stats VALUES(18, 18, 12,  4, 4, 2, 5, 5, 3);
+INSERT INTO stats VALUES(19, 19, 13, 4, 2, 2, 3, 1, 5);
+INSERT INTO stats VALUES(20, 20, 14, 3, 3, 2, 2, 4, 5);
+INSERT INTO stats VALUES(21, 21, 50,  3, 3, 2, 2, 1, 6);
+INSERT INTO stats VALUES(22, 22, 33, 3, 7, 7, 6, 7, 2);
+INSERT INTO stats VALUES(23, 23, 86, 2, 4, 3, 5, 4, 2);
+INSERT INTO stats VALUES(24, 24, 78, 3, 4, 2, 6, 1, 4);
+INSERT INTO stats VALUES(25, 25, 76, 2, 7, 2, 7, 1, 4);
+INSERT INTO stats VALUES(26, 26, 58, 5, 2, 2, 2, 5, 3);
+
+CREATE TABLE xmen (id INTEGER PRIMARY KEY,
+    xmen_id INTEGER);
+    
+INSERT INTO xmen VALUES (1,4);
+INSERT INTO xmen VALUES (2,7);
+INSERT INTO xmen VALUES (3,11);
+INSERT INTO xmen VALUES (4,12);
+INSERT INTO xmen VALUES (5,13);
+INSERT INTO xmen VALUES (6,14);
+INSERT INTO xmen VALUES (7,15);
+INSERT INTO xmen VALUES (8,17);
+INSERT INTO xmen VALUES (9,26);
+
+SELECT m.name, s.popularity, s.intelligence
+FROM marvels AS m
+LEFT OUTER JOIN stats AS s
+ON m.id = s.marvel_id
+ORDER BY s.intelligence desc;
+
+SELECT m.name, m.alignment
+FROM marvels AS m
+JOIN xmen AS x
+ON m.id = x.xmen_id;
+
+SELECT m.name AS 'XMen', s.strength AS 'Strongest to Weakest'
+FROM marvels AS m
+JOIN stats AS s
+JOIN xmen AS x
+ON m.id = s.marvel_id AND m.id = x.xmen_id
+ORDER BY s.strength desc;
