@@ -1,0 +1,19 @@
+In this SQL code, I'm querying three seperate databases that holds differnt Marvel Hero data to answer questions about the data.
+
+SELECT m.name, s.popularity, s.intelligence
+FROM marvels AS m
+LEFT OUTER JOIN stats AS s
+ON m.id = s.marvel_id
+ORDER BY s.intelligence desc;
+
+SELECT m.name, m.alignment
+FROM marvels AS m
+JOIN xmen AS x
+ON m.id = x.xmen_id;
+
+SELECT m.name AS 'XMen', s.strength AS 'Strongest to Weakest'
+FROM marvels AS m
+JOIN stats AS s
+JOIN xmen AS x
+ON m.id = s.marvel_id AND m.id = x.xmen_id
+ORDER BY s.strength desc;
