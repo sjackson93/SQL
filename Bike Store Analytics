@@ -1,3 +1,5 @@
+In this SQL code, I'm created a database that's holding Bike Store data to answer questions about the data.
+
 CREATE TABLE bikes (id integer primary key, name text, color text, size integer, price integer, quantity integer);
 INSERT INTO bikes
 VALUES
@@ -17,8 +19,13 @@ VALUES
 (14, 'Slaw', 'Pink', 26,90,5),
 (15, 'Tally', 'Plumb', 24,1000,7)
 ;
+
+1) List all rows in the database.
 SELECT * FROM bikes
 
+2) Group all bikes in the database by price. 
 SELECT * FROM bikes
 GROUP BY price;
+
+3) Total number of bikes in inventory.
 SELECT SUM(quantity) FROM bikes;
