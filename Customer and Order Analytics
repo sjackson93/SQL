@@ -1,0 +1,66 @@
+#In this SQL, I'm querying a database with multiple tables in it to quantify statistics about customer and order data.
+
+#1. How many orders were placed in January? 
+
+SELECT
+COUNT(orderid) 
+FROM BIT_DB.JanSales
+;
+
+#2. How many of those orders were for an iPhone? 
+
+SELECT 
+COUNT(orderID) 
+FROM BIT_DB.JanSales
+WHERE product LIKE'%iPhone%'
+;
+
+#3. Select the customer account numbers for all the orders that were placed in February.
+
+SELECT 
+customers.acctnum 
+FROM customers
+INNER JOIN FebSales
+ON customers.order_id=FebSales.orderID
+GROUP BY customers.acctnum;
+
+#4. Which product was the cheapest one sold in January, and what was the price? For this one, you are going to use the commands distinct and MIN(). Using 'SELECT distinct' will remove duplicate rows from your results. The MIN() command will allow you to select the smallest value from the price column. This is a hard one - see if you can do it, but don't be afraid to look at the hint or answer if you need to!
+
+SELECT distinct 
+MIN(JanSales.price)
+,JanSales.Product
+FROM JanSales
+;
+
+#5. What is the total revenue for each product sold in January? (Revenue can be calculated using the number of products sold and the price of the products).
+
+SELECT 
+JanSales.Product
+,ROUND(SUM(JanSales.price),2) AS 'Total Revenue'
+FROM BIT_DB.JanSales
+WHERE JanSales.Product <> "" AND JanSales.Product <> 'Product'
+GROUP BY JanSales.Product
+;
+
+#6. Which products were sold in February at 548 Lincoln St, Seattle, WA 98101, how many of each were sold, and what was the total revenue?
+
+SELECT
+FebSales.location
+,FebSales.Product
+,SUM(FebSales.Quantity) AS 'Total Qty'
+,FebSales.price AS 'Unit Price'
+,SUM(FebSales.Quantity)*FebSales.price AS 'Total Rev'
+FROM FebSales
+WHERE FebSales.location LIKE '%548 Lincoln%'
+;
+
+#7. How many customers ordered more than 2 products at a time in February, and what was the average amount spent for those customers? 
+
+SELECT
+COUNT(customers.acctnum) AS 'Customer oders >2'
+,ROUND(AVG(FebSales.price),2) AS 'Avg Rev Spent'
+FROM customers
+JOIN FebSales
+ON customers.order_id=FebSales.orderID
+WHERE FebSales.Quantity > 2 AND customers.acctnum <> "" AND FebSales.Product <> 'Product'
+;
