@@ -26,10 +26,22 @@ GROUP BY customers.acctnum;
 
 #4. Which product was the cheapest one sold in January, and what was the price? For this one, you are going to use the commands distinct and MIN(). Using 'SELECT distinct' will remove duplicate rows from your results. The MIN() command will allow you to select the smallest value from the price column. This is a hard one - see if you can do it, but don't be afraid to look at the hint or answer if you need to!
 
+*** Option 1 ***
+SELECT distinct 
+JanSales.Product
+,JanSales.price
+FROM JanSales
+WHERE JanSales.price IN (SELECT min(JanSales.price) FROM JanSales)
+;
+
+*** Option 2 ***
 SELECT distinct 
 MIN(JanSales.price)
 ,JanSales.Product
 FROM JanSales
+GROUP BY JanSales.Product,JanSales.price
+ORDER BY JanSales.price ASC
+LIMIT 1
 ;
 
 #5. What is the total revenue for each product sold in January? (Revenue can be calculated using the number of products sold and the price of the products).
