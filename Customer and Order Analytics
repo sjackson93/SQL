@@ -36,7 +36,7 @@ FROM JanSales
 
 SELECT 
 JanSales.Product
-,ROUND(SUM(JanSales.price),2) AS 'Total Revenue'
+,ROUND(SUM(JanSales.Quantity)*price),2) AS 'Total Revenue'
 FROM BIT_DB.JanSales
 WHERE JanSales.Product <> "" AND JanSales.Product <> 'Product'
 GROUP BY JanSales.Product
