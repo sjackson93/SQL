@@ -22,7 +22,7 @@ customers.acctnum
 FROM customers
 INNER JOIN FebSales
 ON customers.order_id=FebSales.orderID
-GROUP BY customers.acctnum;
+;
 
 #4. Which product was the cheapest one sold in January, and what was the price? For this one, you are going to use the commands distinct and MIN(). Using 'SELECT distinct' will remove duplicate rows from your results. The MIN() command will allow you to select the smallest value from the price column. This is a hard one - see if you can do it, but don't be afraid to look at the hint or answer if you need to!
 
@@ -64,6 +64,7 @@ FebSales.location
 ,SUM(FebSales.Quantity)*FebSales.price AS 'Total Rev'
 FROM FebSales
 WHERE FebSales.location LIKE '%548 Lincoln%'
+GROUP BY FebSales.Product
 ;
 
 #7. How many customers ordered more than 2 products at a time in February, and what was the average amount spent for those customers? 
