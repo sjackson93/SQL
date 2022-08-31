@@ -1,8 +1,12 @@
 In this SQL code, I'm querying a database that's holding Marvel Hero data to answer questions about the data.
 
+#1. Determine average height of Marvels by gender.
+
 SELECT gender, ROUND(AVG(height_m),2) AS 'Avg_Height_Meters' 
 FROM marvels
 GROUP BY gender;
+
+#2. Classify Marvels in one of three categories; 'Elite', 'Good', 'So-so'.
 
 SELECT COUNT(*) AS 'Total_Marvel',
     CASE
@@ -14,13 +18,19 @@ SELECT COUNT(*) AS 'Total_Marvel',
 FROM marvels
 GROUP BY Marvel_Status;
 
+#3. Determine average weight of Marvels and show only Marvels with a weight greater than 150.
+
 SELECT name, ROUND(AVG(weight_kg)) AS 'Avg_weight'
 FROM marvels
 GROUP BY name
 HAVING Avg_weight > 150 
 ORDER BY Avg_weight;
 
+#4. Show only the Marvels from the USA with the highest popularity.
+
 SELECT name FROM marvels WHERE hometown = 'USA' AND popularity = 1;
+
+#5. Show only the 'Good' or 'Neutral' female Marvels.
 
 SELECT name, gender, alignment FROM marvels WHERE gender = 'Female' AND alignment <> 'Bad'
 ORDER BY alignment;
